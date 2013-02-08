@@ -19,15 +19,13 @@ app.use(express.favicon());
 app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// TODO custom 404/500
-// handler404 = 'syte.views.home.page_not_found_error'
-// handler500 = 'syte.views.home.server_error'
+// TODO custom 404/500 pages
 
 // Controllers
-Object.keys(config.services).forEach( function (serviceName) {
-  var service = config.services[serviceName];
+Object.keys(config.services).forEach( function (name) {
+  var service = config.services[name];
   if (!service.enabled) return;
-  app.use('/' + serviceName + '/:username', controllers[serviceName]);
+  app.use('/' + name, controllers[name]);
 });
 
 // TODO more controllers
