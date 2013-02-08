@@ -8,6 +8,11 @@ from django.conf import settings
 
 from syte.context_processor import site_pages
 
+// TODO mounted app
+    url(r'^about/?$', 'syte.views.home.home'),
+    url(r'^rss/?$', 'syte.views.home.rss'),
+    url(r'^/?$', 'syte.views.home.home'),
+
 
 def server_error(request, template_name='500.html'):
     t = loader.get_template(template_name)

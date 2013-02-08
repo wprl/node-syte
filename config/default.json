@@ -147,7 +147,8 @@
   },
   "debug": true,
   "site": {
-    "rootUrl": "http://127.0.0.1:7777/"
+    "rootUrl": "http://127.0.0.1:7777/",
+    "port": 7777
   },
   "mediaUrl": site_root_uri + "static/"
 }
