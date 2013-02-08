@@ -5,7 +5,7 @@ var path = require('path');
 var express = require('express');
 var config = require('config');
 
-var controllers = require('./controllers');
+var services = require('./services');
 
 // Create the main app
 var app = module.exports = express();
@@ -21,14 +21,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // TODO custom 404/500 pages
 
-// Controllers
+// Services
 Object.keys(config.services).forEach( function (name) {
   var service = config.services[name];
   if (!service.enabled) return;
-  app.use('/' + name, controllers[name]);
+  app.use('/' + name, services[name]);
 });
 
-// TODO more controllers
+// TODO more routes
 
 // #Github Integration
 // if settings.GITHUB_OAUTH_ENABLED:
