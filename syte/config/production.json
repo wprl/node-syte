@@ -1,0 +1,6 @@
+{
+  "debug": false,
+  "site": {
+    "rootUrl": "[enter prod url here] ex. http://rigoneri.herokuapp.com/"
+  }
+}
