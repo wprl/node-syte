@@ -1,7 +1,6 @@
 var express = require('express');
 var config = require('config');
 var path = require('path');
-var consolidate = require('consolidate');
 
 var app = module.exports = express();
 
