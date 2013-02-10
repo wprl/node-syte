@@ -50,7 +50,7 @@ app.get('/post/:postId', function (request, response, next) {
   var tumblrRequest = {
     url: config.services.settings.blog.tumblr.api.url + '/posts',
     qs: {
-      api_key: config.services.settings.blog.tumblr.api.key
+      api_key: config.services.settings.blog.tumblr.api.key,
       id: postId
     }
   };
@@ -84,14 +84,14 @@ app.get('/post/:postId', function (request, response, next) {
       path = '/static/templates/blog-post-' + post.type + '.html';
       context.post_data = template(post)
 
-      if (post.type === 'photo' or post.type === 'video') {
+      if (post.type === 'photo' || post.type === 'video') {
         alt_title = post.type.toUpperCase() + ': ' + post.caption.substring(3, post.caption.length - 4);
       }
       else if (post.type === 'quote') {
         alt_title = post.type.toUpperCase() + ': ' + post.text;
       }
       else if (post.type == 'audio') {
-        alt_title = post.type.toUpperCase() + ': ' + post.artist + ' - ' + post.track_name);
+        alt_title = post.type.toUpperCase() + ': ' + post.artist + ' - ' + post.track_name;
       }
 
       context.post_title = post.get('title', unescape(alt_title));
@@ -105,7 +105,7 @@ app.get('/post/:postId', function (request, response, next) {
       }
 
       response.render('blog-post.html', context);
-    }
+    });
   }
 
   // TODO
@@ -121,12 +121,12 @@ app.get('/post/:postId', function (request, response, next) {
 });
 
 app.get('/tags/:tag', function (request, response, next) {
-  var tag = tag;
+  var tag = request.params.tag;
   var offset = request.params.o || 0;
   var tumblrRequest = {
     url: config.services.settings.blog.tumblr.api.url + '/posts',
     qs: {
-      api_key: config.services.settings.blog.tumblr.api.key
+      api_key: config.services.settings.blog.tumblr.api.key,
       tag: tag,
       offset: offset
     }
@@ -157,7 +157,7 @@ app.get('/blog.json', function (request, response, next) {
   var tumblrRequest = {
     url: config.services.settings.blog.tumblr.api.url + '/posts',
     qs: {
-      api_key: config.services.settings.blog.tumblr.api.key
+      api_key: config.services.settings.blog.tumblr.api.key,
       offset: offset
     }
   };

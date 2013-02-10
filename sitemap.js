@@ -1,17 +1,13 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+var express = require('express');
+var config = require('config');
+var r = require('request');
 
-import os
-import sys
-import requests
-import math
+var app = module.exports = express();
 
-PATH_TO_HERE = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(os.path.join(PATH_TO_HERE, '..'))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'syte.settings'
-
-from django.conf import settings
-from datetime import datetime
+app.get('/', function (request, response, next) {
+	// TODO set mime type to application/xml
+	response.render('sitemap.xml');
+});
 
 
 def generate_sitemap():
@@ -23,7 +19,7 @@ def generate_sitemap():
 	sitemap = '<?xml version="1.0" encoding="utf-8"?>'\
 		'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 	posts = r.json['response']['posts']
-	
+
 	i = 1;
 	t = 1.0;
 

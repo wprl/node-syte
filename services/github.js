@@ -36,6 +36,11 @@ app.get('/:username', function (request, response, next) {
 });
 
 // TODO
+// #Github Integration
+// if settings.GITHUB_OAUTH_ENABLED:
+//     urlpatterns += patterns('',
+//         url(r'^github/auth/?$', 'syte.views.github.github_auth'),
+//     )
 // routes.auth = function auth (request, response, next) {
 //   context = dict()
 //   code = request.GET.get('code', None)

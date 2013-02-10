@@ -1,10 +1,17 @@
 var express = require('express');
 var config = require('config');
+var path = require('path');
+var consolidate = require('consolidate');
 
 var app = module.exports = express();
 
+app.engine('html', consolidate.swig);
+
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, '..', 'templates'));
+
 app.get('/', function (request, response, next) {
-  response.render('index.html');
+  response.render('index.html', {});
 });
 
 app.get('/about', function (request, response, next) {

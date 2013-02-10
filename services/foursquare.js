@@ -57,6 +57,11 @@ app.get('/:username', function (request, response, next) {
 });
 
 // TODO
+// #Foursquare Integration
+// if settings.INSTAGRAM_OAUTH_ENABLED:
+//     urlpatterns += patterns('',
+//         url(r'^instagram/auth/?$', 'syte.views.instagram.instagram_auth'),
+//     )
 // def foursquare_auth(request):
 //   context = dict()
 //   code = request.GET.get('code', None)

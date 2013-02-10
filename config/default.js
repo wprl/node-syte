@@ -1,25 +1,29 @@
-{
+var rootUrl = "http://127.0.0.1:7777/";
+var tumblrUrl = "[enter tumblr blog url] ex. rigoneri.tumblr.com";
+var wordpressUrl = "[enter wordpress blog url] ex. gordonkoo.wordpress.com";
+
+module.exports = {
   "compress_revision_number": "1.0",
   "services": {
     "blog": {
       "platform": "tumblr",
       "tumblr": {
-        "url": "[enter tumblr blog url] ex. rigoneri.tumblr.com",
+        "url": tumblrUrl,
         "api": {
-          "url": "http://api.tumblr.com/v2/blog/{0}".format(tumblr_blog_url),
+          "url": "http://api.tumblr.com/v2/blog/" + tumblrUrl,
           "key": "[enter tumblr api key here, see tumblr setup instructions]"
         }
       },
       "wordpress": {
-        "url": "[enter wordpress blog url] ex. gordonkoo.wordpress.com",
+        "url": wordpressUrl,
         "api": {
-          "url": "https://public-api.wordpress.com/rest/v1/sites/{0}".format(wordpress_blog_url)
+          "url": "https://public-api.wordpress.com/rest/v1/sites/" + wordpressUrl
         }
       }
     },
     "rss": {
       "enabled": true,
-      "url": "http://{0}/rss".format(tumblr_blog_url)
+      "url": "http://" + tumblrUrl + "/rss"
     },
     "twitter": {
       "enabled": true,
@@ -147,8 +151,8 @@
   },
   "debug": true,
   "site": {
-    "rootUrl": "http://127.0.0.1:7777/",
+    "rootUrl": rootUrl,
     "port": 7777
   },
-  "mediaUrl": site_root_uri + "static/"
-}
+  "mediaUrl": rootUrl + "static/"
+};
