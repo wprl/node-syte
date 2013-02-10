@@ -5,13 +5,11 @@ var consolidate = require('consolidate');
 
 var app = module.exports = express();
 
-app.engine('html', consolidate.swig);
-
-app.set('view engine', 'html');
+// TODO there must be some way to only have to set this in app.js
 app.set('views', path.join(__dirname, '..', 'templates'));
 
 app.get('/', function (request, response, next) {
-  response.render('index.html', {});
+  response.render('index.html', {COMPRESS_REVISION_NUMBER: '1.0'}); // TODO send real data from config
 });
 
 app.get('/about', function (request, response, next) {
@@ -24,4 +22,3 @@ app.get('/rss', function (request, response, next) {
     response.json(newContent);
   });
 });
-
