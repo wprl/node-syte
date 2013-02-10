@@ -15,7 +15,13 @@ module.exports = function(grunt) {
     },
     min: {
       js: {
-        src: ['static/js/libs/*', 'static/js/components/*'],
+        // need to include requirejs first
+        src: ['static/js/libs/require.js', 'static/js/libs/jquery.url.js',
+              'static/js/libs/bootstrap-modal.js', 'static/js/libs/prettify.js',
+              'static/js/libs/text.js', 'static/js/libs/bootstrap-transition.js',
+              'static/js/libs/json.js', 'static/js/libs/handlebars.js',
+              'static/js/libs/moment.min.js', 'static/js/libs/spin.js',
+              'static/js/components/*'],
         dest: 'static/js/min/scripts-' + config.compress.revision + '.min.js'
       }
     }
