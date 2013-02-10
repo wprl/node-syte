@@ -4,9 +4,6 @@ var path = require('path');
 
 var app = module.exports = express();
 
-// TODO there must be some way to only have to set this in app.js
-app.set('views', path.join(__dirname, '..', 'templates'));
-
 app.get('/', function (request, response, next) {
   response.render('index.html', {COMPRESS_REVISION_NUMBER: '1.0'}); // TODO send real data from config
 });

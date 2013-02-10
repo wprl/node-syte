@@ -8,11 +8,11 @@ function renderBlogPosts(posts) {
   if (posts.length === 0) {
       reachedEnd = true;
   }
-  
-  //Update this every time there are changes to the required 
+
+  //Update this every time there are changes to the required
   //templates since it's cached every time
   require.config({
-    urlArgs: "bust=v1" 
+    urlArgs: "bust=v1"
   })
 
   require(["text!templates/blog-post-text.html",
@@ -71,10 +71,10 @@ function renderBlogPosts(posts) {
 }
 
 function fetchTumblrBlogPosts(offset, tag) {
-  var blog_fetch_url = '/blog.json?o=' + offset;
+  var blog_fetch_url = '/blog/blog.json?o=' + offset;
 
   if (tag)
-      blog_fetch_url = '/tags/' + tag + '/?o=' + offset;
+      blog_fetch_url = '/blog/tags/' + tag + '/?o=' + offset;
 
   $.getJSON(blog_fetch_url, function(blog_posts) {
     renderBlogPosts(blog_posts.response.posts);

@@ -8,6 +8,7 @@ module.exports = {
   },
   "services": {
     "blog": {
+      "enabled": true,
       "platform": "tumblr",
       "tumblr": {
         "url": tumblrUrl,
@@ -24,11 +25,11 @@ module.exports = {
       }
     },
     "rss": {
-      "enabled": true,
+      "enabled": false,
       "url": "http://" + tumblrUrl + "/rss"
     },
     "twitter": {
-      "enabled": true,
+      "enabled": false,
       "url": "https://api.twitter.com/",
       "consumer": {
         "key": "[enter twitter consumer key here, see twitter setup instructions]",
@@ -40,13 +41,13 @@ module.exports = {
       }
     },
     "github": {
-      "enabled": true,
+      "enabled": false,
       "api": {
         "url": "https://api.github.com/",
         "token": "[enter github access token here, see github setup instructions]"
       },
       "oauth": {
-        "enabled": true,
+        "enabled": false,
         "client": {
           "id": "[enter github client id here, see github setup instructions]",
           "secret": "[enter github client secret here, see github setup instructions]",
@@ -56,22 +57,22 @@ module.exports = {
       }
     },
     "stackoverflow": {
-      "enabled": true,
+      "enabled": false,
       "api": { "url": "http://api.stackoverflow.com/1.1/" }
     },
     "dribbble": {
-      "enabled": true,
+      "enabled": false,
       "api": { "url": "http://api.dribbble.com/players/" }
     },
     "instagram": {
-      "enabled": true,
+      "enabled": false,
       "api": {
         "url": "https://api.instagram.com/v1/",
         "token": "[enter instagram access token here, see instagram setup instructions]"
       },
       "userid": "[enter instagram user_id here, see instagram setup instructions]",
       "oauth": {
-        "enabled": true,
+        "enabled": false,
         "authorizeurl": "https://api.instagram.com/oauth/authorize",
         "accesstokenurl": "https://api.instagram.com/oauth/access_token"
       },
@@ -81,14 +82,14 @@ module.exports = {
       }
     },
     "foursquare": {
-      "enabled": true,
+      "enabled": false,
       "api": {
         "url": "https://api.foursquare.com/v2/",
       },
       "accessToken": "[enter foursquare access token here, see foursquare setup instructions]",
       "showCurrentDay": true,
       "oauth": {
-        "enabled": true,
+        "enabled": false,
         "authorizeUrl": "https://foursquare.com/oauth2/authenticate",
         "accessTokenUrl": "https://foursquare.com/oauth2/access_token"
       },
@@ -113,14 +114,14 @@ module.exports = {
       "shortname": ""
     },
     "lastfm": {
-      "enabled": true,
+      "enabled": false,
       "api": {
         "url": "http://ws.audioscrobbler.com/2.0/",
         "key": "[enter lastfm api_key here, see lastfm setup instructions]"
       }
     },
     "soundcloud": {
-      "enabled": true,
+      "enabled": false,
       "api": {
         "url": "https://api.soundcloud.com/"
       },
@@ -129,19 +130,19 @@ module.exports = {
       "playerColor": "ff912b"
     },
     "bitbucket": {
-      "enabled": true,
+      "enabled": false,
       "api": {
         "url": "https://api.bitbucket.org/1.0/"
       },
       "showForks": false
     },
     "tent.io": {
-      "enabled": true,
+      "enabled": false,
       "entityUrl": "[enter your entity uri here] ex. https://yourname.tent.is",
       "feedUrl": "[enter a url to your feed] ex. https://yourname.tent.is"
     },
     "steam": {
-      "enabled": true,
+      "enabled": false,
       "api": {
         "url": "http://api.steampowered.com/isteamuser",
         "key": "[enter your steam api key here, see steam setup instructions]"
