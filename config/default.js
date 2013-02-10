@@ -1,5 +1,5 @@
 var rootUrl = "http://127.0.0.1:7777/";
-var tumblrUrl = "[enter tumblr blog url] ex. rigoneri.tumblr.com";
+var tumblrUrl = "wprl.tumblr.com";
 var wordpressUrl = "[enter wordpress blog url] ex. gordonkoo.wordpress.com";
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
         "url": tumblrUrl,
         "api": {
           "url": "http://api.tumblr.com/v2/blog/" + tumblrUrl,
-          "key": "[enter tumblr api key here, see tumblr setup instructions]"
+          "key": "TODO redacted"
         }
       },
       "wordpress": {
@@ -29,15 +29,17 @@ module.exports = {
       "url": "http://" + tumblrUrl + "/rss"
     },
     "twitter": {
-      "enabled": false,
-      "url": "https://api.twitter.com/",
+      "enabled": true,
+      "api": {
+        "url": "https://api.twitter.com/"
+      },
       "consumer": {
-        "key": "[enter twitter consumer key here, see twitter setup instructions]",
-        "secret": "[enter twitter consumer secret here, see twitter setup instructions]"
-        },
-      "user": {
-        "key":"[enter twitter user key here, see twitter setup instructions]",
-        "secret": "[enter twitter user secret here, see twitter setup instructions]"
+        "key": "TODO redacted",
+        "secret": "TODO redacted"
+      },
+      "user": { // access token key, access token secret
+        "key":"TODO redacted",
+        "secret": "TODO redacted"
       }
     },
     "github": {
