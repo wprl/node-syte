@@ -1,4 +1,5 @@
 var express = require('express');
+var config = require('config');
 var r = require('request');
 
 var app = module.exports = express();
@@ -48,14 +49,14 @@ function convertWordpressResponse (post) {
 // ------
 app.get('/post/:postId', function (request, response, next) {
   var tumblrRequest = {
-    url: config.services.settings.blog.tumblr.api.url + '/posts',
+    url: config.services.blog.tumblr.api.url + '/posts',
     qs: {
-      api_key: config.services.settings.blog.tumblr.api.key,
+      api_key: config.services.blog.tumblr.api.key,
       id: postId
     }
   };
   var wordpressRequest = {
-    url: config.services.settings.blog.wordpress.api.url + '/posts',
+    url: config.services.blog.wordpress.api.url + '/posts',
     qs: {
     }
   }
@@ -124,15 +125,15 @@ app.get('/tags/:tag', function (request, response, next) {
   var tag = request.params.tag;
   var offset = request.params.o || 0;
   var tumblrRequest = {
-    url: config.services.settings.blog.tumblr.api.url + '/posts',
+    url: config.services.blog.tumblr.api.url + '/posts',
     qs: {
-      api_key: config.services.settings.blog.tumblr.api.key,
+      api_key: config.services.blog.tumblr.api.key,
       tag: tag,
       offset: offset
     }
   };
   var wordpressRequest = {
-    url: config.services.settings.blog.wordpress.api.url + '/posts',
+    url: config.services.blog.wordpress.api.url + '/posts',
     qs: {
       tag: tag,
       offset: offset
@@ -155,9 +156,9 @@ app.get('/tags/:tag', function (request, response, next) {
 app.get('/blog.json', function (request, response, next) {
   var offset = request.params.o || 0;
   var tumblrRequest = {
-    url: config.services.settings.blog.tumblr.api.url + '/posts',
+    url: config.services.blog.tumblr.api.url + '/posts',
     qs: {
-      api_key: config.services.settings.blog.tumblr.api.key,
+      api_key: config.services.blog.tumblr.api.key,
       offset: offset
     }
   };

@@ -5,7 +5,7 @@ var path = require('path');
 var app = module.exports = express();
 
 app.get('/', function (request, response, next) {
-  response.render('index.html', {COMPRESS_REVISION_NUMBER: '1.0'}); // TODO send real data from config
+  response.render('index.html', config);
 });
 
 app.get('/about', function (request, response, next) {
