@@ -3,7 +3,9 @@ var tumblrUrl = "[enter tumblr blog url] ex. rigoneri.tumblr.com";
 var wordpressUrl = "[enter wordpress blog url] ex. gordonkoo.wordpress.com";
 
 module.exports = {
-  "compress_revision_number": "1.0",
+  "compress": {
+    "revision": "1.0"
+  },
   "services": {
     "blog": {
       "platform": "tumblr",
