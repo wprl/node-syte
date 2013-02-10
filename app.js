@@ -7,7 +7,7 @@ var config = require('config');
 var consolidate = require('consolidate');
 var swig = require('swig');
 
-// TODO // var services = require('./services');
+var services = require('./services');
 
 // Create the main app
 var app = module.exports = express();
@@ -33,26 +33,18 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 // TODO custom 404/500 pages
 
-// TODO // Services
-// Object.keys(config.services).forEach( function (name) {
-//   var service = config.services[name];
-//   if (!service.enabled) return;
-//   app.use('/' + name, services[name]);
-// });
+// Pages (Non-Service Controllers/Routes)
+app.use('/', require('./pages/home'));
 
-// TODO // app.use('/', require('./services/home'));
-app.get('/', function (request, response, next) {
-  response.render('index.html', {});
+// Services
+Object.keys(config.services).forEach( function (name) {
+  var service = config.services[name];
+  if (!service.enabled) return;
+  app.use('/' + name, services[name]);
 });
-app.use('/blog', require('./services/blog'));
-
-// TODO more routes
 
 // Sitemap
 // TODO // if (config.sitemap.enabled) app.use('/sitemap.xml', sitemap);
-
-// Use the app's router after all other middleware
-app.use(app.router);
 
 // Start the app if not being used as a mounted app
 if (!module.parent) {
